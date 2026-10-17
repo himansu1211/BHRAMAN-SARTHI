@@ -87,7 +87,12 @@ export function SearchForm({
     e.preventDefault();
     setFormError(null);
 
-    if (origin === destination) {
+    if (!origin.trim() || !destination.trim()) {
+      setFormError("कृपया प्रस्थान और गंतव्य स्थल चुनें (Please enter origin and destination).");
+      return;
+    }
+
+    if (origin.trim().toLowerCase() === destination.trim().toLowerCase()) {
       setFormError("प्रारंभ स्थल और गंतव्य स्थल भिन्न होने चाहिए (Origin and destination must be different).");
       return;
     }
@@ -176,18 +181,14 @@ export function SearchForm({
             <span className="text-[10px] text-amber-700 font-serif-royal">आरंभ धाम</span>
           </label>
           <div className="relative">
-            <select
+            <input
               id="origin-city"
+              list="city-options"
               value={origin}
               onChange={(e) => setOrigin(e.target.value)}
-              className="w-full appearance-none rounded-xl border border-[#dfc89d] bg-white px-4 py-3 text-sm font-semibold text-[#2a1610] shadow-inner transition-colors focus:border-amber-600 focus:ring-2 focus:ring-amber-400/40 focus:outline-none"
-            >
-              {CITIES.map((city) => (
-                <option key={city.id} value={city.id}>
-                  {city.name} — {CITY_HINDI_NAMES[city.id] || city.name}
-                </option>
-              ))}
-            </select>
+              placeholder="Enter origin station or city"
+              className="w-full rounded-xl border border-[#dfc89d] bg-white px-4 py-3 text-sm font-semibold text-[#2a1610] focus:border-amber-600 focus:ring-2 focus:ring-amber-400/40 focus:outline-none"
+            />
             <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-amber-700">
               ▼
             </div>
@@ -215,23 +216,27 @@ export function SearchForm({
             <span className="text-[10px] text-amber-700 font-serif-royal">लक्ष्य धाम</span>
           </label>
           <div className="relative">
-            <select
+            <input
               id="destination-city"
+              list="city-options"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              className="w-full appearance-none rounded-xl border border-[#dfc89d] bg-white px-4 py-3 text-sm font-semibold text-[#2a1610] shadow-inner transition-colors focus:border-amber-600 focus:ring-2 focus:ring-amber-400/40 focus:outline-none"
-            >
-              {CITIES.map((city) => (
-                <option key={city.id} value={city.id}>
-                  {city.name} — {CITY_HINDI_NAMES[city.id] || city.name}
-                </option>
-              ))}
-            </select>
+              placeholder="Enter destination station or city"
+              className="w-full rounded-xl border border-[#dfc89d] bg-white px-4 py-3 text-sm font-semibold text-[#2a1610] focus:border-amber-600 focus:ring-2 focus:ring-amber-400/40 focus:outline-none"
+            />
             <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-amber-700">
               ▼
             </div>
           </div>
         </div>
+
+        <datalist id="city-options">
+          {CITIES.map((city) => (
+            <option key={city.id} value={city.id}>
+              {city.name} — {CITY_HINDI_NAMES[city.id] || city.name}
+            </option>
+          ))}
+        </datalist>
       </div>
 
       {/* Date, Arrive-By Deadline & Budget */}
