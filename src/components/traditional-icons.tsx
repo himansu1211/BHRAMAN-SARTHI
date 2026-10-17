@@ -1,5 +1,21 @@
 import React from "react";
 
+type Spoke = { deg: number; x2: number; y2: number; };
+const RATH_SPOKES: Spoke[] = [
+  { deg: 0, x2: 42, y2: 24 },
+  { deg: 30, x2: 39.58, y2: 30.92 },
+  { deg: 60, x2: 33.09, y2: 35.56 },
+  { deg: 90, x2: 24, y2: 42 },
+  { deg: 120, x2: 14.91, y2: 35.56 },
+  { deg: 150, x2: 8.42, y2: 30.92 },
+  { deg: 180, x2: 6, y2: 24 },
+  { deg: 210, x2: 8.42, y2: 17.08 },
+  { deg: 240, x2: 14.91, y2: 12.44 },
+  { deg: 270, x2: 24, y2: 6 },
+  { deg: 300, x2: 33.09, y2: 12.44 },
+  { deg: 330, x2: 39.58, y2: 17.08 },
+];
+
 // Royal Chariot Wheel (Rath Chakra / Sarthi's Wheel)
 export function RathChakraIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
@@ -11,13 +27,13 @@ export function RathChakraIcon({ className = "w-6 h-6" }: { className?: string }
       <circle cx="24" cy="24" r="6" strokeWidth="2" fill="currentColor" fillOpacity="0.15" />
       <circle cx="24" cy="24" r="2.5" fill="currentColor" />
       {/* 12 Auspicious Spokes */}
-      {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+      {RATH_SPOKES.map(({ deg, x2, y2 }) => (
         <line
           key={deg}
           x1="24"
           y1="24"
-          x2={24 + 18 * Math.cos((deg * Math.PI) / 180)}
-          y2={24 + 18 * Math.sin((deg * Math.PI) / 180)}
+          x2={x2}
+          y2={y2}
           strokeWidth="1.8"
           strokeLinecap="round"
         />

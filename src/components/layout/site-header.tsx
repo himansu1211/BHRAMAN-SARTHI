@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { RathChakraIcon, LotusIcon } from "@/components/traditional-icons";
 
 const navItems = [
-  { href: "/search", label: "मार्ग खोज", sub: "Route Finder" },
+  { href: "/search", label: "Search Routes", sub: "Route Finder" },
   { href: "/saved", label: "संग्रहीत यात्रा", sub: "Saved Trips" },
   { href: "/about", label: "सारथी गाथा", sub: "Chronicle" },
 ] as const;
