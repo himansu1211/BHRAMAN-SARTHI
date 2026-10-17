@@ -12,6 +12,13 @@ import {
   searchInputToParams,
 } from "@/lib/validation/search";
 import type { SearchInput, SearchResponse, TravelRoute } from "@/lib/types/travel";
+import {
+  RathChakraIcon,
+  LotusIcon,
+  DiyaIcon,
+  ToranaDivider,
+  OrnateCorner,
+} from "@/components/traditional-icons";
 
 function SearchPageContent() {
   const searchParams = useSearchParams();
@@ -104,7 +111,7 @@ function SearchPageContent() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.message || "Failed to load routes");
+        throw new Error(data.message || "मार्ग खोजने में त्रुटि (Failed to load routes)");
       }
 
       setSearchResponse(data);
@@ -141,13 +148,17 @@ function SearchPageContent() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-12">
       {/* Title */}
-      <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+      <div className="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end border-b border-[#dfc89d] pb-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-            Find Optimal Routes
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800">
+            <DiyaIcon className="h-4 w-4 text-amber-600" />
+            <span>सारथी मार्ग अन्वेषण • MULTIMODAL ROUTE FINDER</span>
+          </div>
+          <h1 className="mt-1 font-royal-title text-3xl font-extrabold tracking-tight text-[#2a1610] sm:text-4xl">
+            शुभ व समयबद्ध यात्रा मार्ग
           </h1>
-          <p className="mt-1 text-sm text-muted">
-            Ranked intelligently by your deadline, reliability confidence, and overall travel value.
+          <p className="mt-1 text-xs sm:text-sm text-[#6e5246]">
+            Deadline-aware itineraries prioritized by arrival certainty, transfer buffers, and realistic confidence.
           </p>
         </div>
       </div>
@@ -162,12 +173,12 @@ function SearchPageContent() {
 
       {/* Error Alert */}
       {searchError && (
-        <div className="mb-8 rounded-2xl border border-red-500/30 bg-red-500/10 p-6 text-center">
-          <div className="text-base font-bold text-red-600 dark:text-red-400">
+        <div className="mb-8 rounded-2xl border-2 border-red-300 bg-red-50 p-6 text-center">
+          <div className="font-royal-title text-base font-bold text-red-900">
             {searchError}
           </div>
-          <p className="mt-1 text-xs text-muted">
-            Try adjusting your travel time, switching cities, or raising your budget.
+          <p className="mt-1 text-xs text-[#74584c]">
+            कृपया यात्रा समय बढ़ाएँ, भिन्न नगर चुनें या व्यय सीमा को समायोजित करें।
           </p>
         </div>
       )}
@@ -175,9 +186,15 @@ function SearchPageContent() {
       {/* Summary Highlight Bar */}
       {searchResponse && searchResponse.routes.length > 0 && (
         <div className="mb-8">
-          <h2 className="mb-3 text-xs font-bold uppercase tracking-wider text-muted">
-            Route Highlights
-          </h2>
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="flex items-center gap-1.5 font-royal-sub text-xs font-bold uppercase tracking-wider text-[#6e5246]">
+              <LotusIcon className="h-3.5 w-3.5 text-amber-600" />
+              <span>सारथी श्रेष्ठ मार्ग चयन • Route Highlights</span>
+            </h2>
+            <span className="text-[11px] font-semibold text-amber-900">
+              Click a card to highlight
+            </span>
+          </div>
           <RouteSummaryBar
             summary={searchResponse.summary}
             routes={searchResponse.routes}
@@ -197,50 +214,51 @@ function SearchPageContent() {
       <div className="space-y-4">
         {/* Filter bar */}
         {searchResponse && (
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
-            <div className="text-sm font-semibold text-foreground">
-              {filteredRoutes.length} {filteredRoutes.length === 1 ? "route option" : "route options"} available
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dfc89d] pb-4">
+            <div className="text-sm font-bold text-[#2a1610]">
+              <span className="font-royal-title">{filteredRoutes.length}</span>{" "}
+              {filteredRoutes.length === 1 ? "मार्ग उपलब्ध (Option)" : "मार्ग उपलब्ध (Options Available)"}
               {searchResponse.hiddenMissedDeadline > 0 && !searchInput.includeMissedDeadline && (
-                <span className="ml-2 text-xs font-normal text-muted">
-                  ({searchResponse.hiddenMissedDeadline} routes hidden because they arrive after deadline)
+                <span className="ml-2 text-xs font-normal text-amber-900">
+                  ({searchResponse.hiddenMissedDeadline} मार्ग समय सीमा उपरांत होने के कारण छिपे हैं)
                 </span>
               )}
             </div>
 
             <div className="flex items-center gap-1.5">
-              <span className="text-xs font-medium text-muted mr-1">Filter:</span>
+              <span className="text-xs font-bold text-[#6e5246] mr-1">फ़िल्टर (Filter):</span>
               <button
                 type="button"
                 onClick={() => setFilterMode("all")}
-                className={`rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
+                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                   filterMode === "all"
-                    ? "bg-foreground text-background"
-                    : "bg-surface text-muted hover:text-foreground border border-border"
+                    ? "bg-[#8e1b1b] text-white shadow-sm"
+                    : "bg-white text-[#6e5246] hover:text-[#8e1b1b] border border-[#dfc89d]"
                 }`}
               >
-                All Routes
+                समस्त (All)
               </button>
               <button
                 type="button"
                 onClick={() => setFilterMode("direct")}
-                className={`rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
+                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                   filterMode === "direct"
-                    ? "bg-foreground text-background"
-                    : "bg-surface text-muted hover:text-foreground border border-border"
+                    ? "bg-[#8e1b1b] text-white shadow-sm"
+                    : "bg-white text-[#6e5246] hover:text-[#8e1b1b] border border-[#dfc89d]"
                 }`}
               >
-                Direct Only
+                प्रत्यक्ष मात्र (Direct)
               </button>
               <button
                 type="button"
                 onClick={() => setFilterMode("within_deadline")}
-                className={`rounded-lg px-3 py-1 text-xs font-semibold transition-colors ${
+                className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all ${
                   filterMode === "within_deadline"
-                    ? "bg-foreground text-background"
-                    : "bg-surface text-muted hover:text-foreground border border-border"
+                    ? "bg-[#8e1b1b] text-white shadow-sm"
+                    : "bg-white text-[#6e5246] hover:text-[#8e1b1b] border border-[#dfc89d]"
                 }`}
               >
-                Beats Deadline Only
+                समय पूर्व मात्र (Beats Deadline)
               </button>
             </div>
           </div>
@@ -248,19 +266,30 @@ function SearchPageContent() {
 
         {/* Loading state skeleton */}
         {isLoading && (
-          <div className="space-y-4 py-6">
-            {[1, 2, 3].map((i) => (
+          <div className="space-y-4 py-8">
+            <div className="flex flex-col items-center justify-center py-6 text-center">
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-amber-800 border-2 border-amber-300">
+                <RathChakraIcon className="h-8 w-8 animate-spin" />
+              </div>
+              <p className="mt-3 font-royal-title text-base font-bold text-[#8e1b1b]">
+                सारथी शुभ मार्गों का संकलन कर रहा है...
+              </p>
+              <p className="text-xs text-[#74584c]">
+                Calculating realistic arrival buffers across Indian aviation & railways
+              </p>
+            </div>
+            {[1, 2].map((i) => (
               <div
                 key={i}
-                className="animate-pulse rounded-2xl border border-border bg-surface p-6 space-y-4"
+                className="animate-pulse rounded-2xl border border-[#dfc89d] bg-white p-6 space-y-4 shadow-sm"
               >
                 <div className="flex justify-between">
-                  <div className="h-4 w-40 rounded bg-muted/20" />
-                  <div className="h-4 w-28 rounded bg-muted/20" />
+                  <div className="h-4 w-40 rounded bg-amber-100" />
+                  <div className="h-4 w-28 rounded bg-amber-100" />
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="h-8 w-48 rounded bg-muted/20" />
-                  <div className="h-8 w-24 rounded bg-muted/20" />
+                  <div className="h-8 w-48 rounded bg-amber-100" />
+                  <div className="h-8 w-24 rounded bg-amber-100" />
                 </div>
               </div>
             ))}
@@ -294,15 +323,15 @@ function SearchPageContent() {
 
         {/* Empty state */}
         {!isLoading && !searchError && searchResponse && filteredRoutes.length === 0 && (
-          <div className="rounded-2xl border border-border bg-surface p-12 text-center">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
-              🔍
+          <div className="rounded-3xl border-2 border-[#dfc89d] bg-gradient-to-b from-white to-[#fbf6ea] p-12 text-center shadow-md">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-amber-800 border border-amber-300">
+              <LotusIcon className="h-7 w-7 text-amber-700" />
             </div>
-            <h3 className="mt-4 text-base font-bold text-foreground">
-              No routes found matching your criteria
+            <h3 className="mt-4 font-royal-title text-lg font-bold text-[#2a1610]">
+              इस मानदण्ड पर कोई मार्ग प्राप्त नहीं हुआ
             </h3>
-            <p className="mt-1 text-sm text-muted">
-              Try extending your arrive-by deadline time, enabling &ldquo;Show routes that arrive after deadline&rdquo;, or increasing your budget.
+            <p className="mx-auto mt-2 max-w-md text-xs sm:text-sm text-[#6e5246]">
+              कृपया अपनी पहुँचने की समय सीमा (Arrive-by Deadline) को बढ़ाएं, अथवा &ldquo;विलंबित मार्ग भी दिखाएं&rdquo; का विकल्प चुनें।
             </p>
             <button
               type="button"
@@ -313,9 +342,9 @@ function SearchPageContent() {
                   budget: Math.max(searchInput.budget, 35000),
                 });
               }}
-              className="mt-4 rounded-xl bg-accent px-5 py-2 text-xs font-semibold text-white shadow-sm hover:bg-accent-hover"
+              className="mt-6 rounded-xl bg-[#8e1b1b] px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-[#711313]"
             >
-              Expand Search Filters
+              खोज सीमा विस्तृत करें (Expand Search)
             </button>
           </div>
         )}
@@ -341,8 +370,10 @@ export default function SearchPage() {
       fallback={
         <div className="mx-auto flex min-h-[60vh] max-w-6xl items-center justify-center p-8">
           <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-accent border-t-transparent" />
-            <p className="mt-3 text-sm text-muted">Loading route search...</p>
+            <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-amber-600 border-t-transparent" />
+            <p className="mt-3 font-royal-title text-sm font-bold text-[#8e1b1b]">
+              सारथी मार्ग लोड कर रहा है...
+            </p>
           </div>
         </div>
       }

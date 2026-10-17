@@ -1,41 +1,36 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "RouteWise",
-    template: "%s · RouteWise",
+    default: "BHRAMAN-SARTHI (भ्रमण-सारथी) · Your Indian Travel Companion",
+    template: "%s · BHRAMAN-SARTHI",
   },
   description:
-    "Compare flights and trains and find the best route based on price, time and arrival confidence.",
+    "BHRAMAN-SARTHI (भ्रमण-सारथी) — Your divine travel companion. Deadline-aware journey planner seamlessly connecting flights and trains across Bharatvarsha.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col">
+    <html lang="en" className="h-full antialiased">
+      <body className="flex min-h-full flex-col selection:bg-amber-500/20 selection:text-amber-900">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-surface focus:px-3 focus:py-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-3 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>
+        {/* Sacred Auspicious Top Zari Border */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-amber-700 via-amber-400 to-red-800" />
         <SiteHeader />
         {children}
         <SiteFooter />

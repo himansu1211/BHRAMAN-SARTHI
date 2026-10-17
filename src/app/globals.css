@@ -1,36 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=Marcellus&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Rozha+One&family=Yatra+One&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6f8;
-  --foreground: #0f172a;
-  --surface: #ffffff;
-  --muted: #64748b;
-  --accent: #0f766e;
-  --accent-hover: #0d9488;
-  --border: #e2e8f0;
-  --ring: #99f6e4;
+  /* Indian Medieval & Cultural Royal Palette */
+  --background: #fdfaf3;         /* Warm Sandstone Parchment / भोजपत्र */
+  --surface: #ffffff;            /* Haveli Marble / Ivory */
+  --surface-warm: #fcf6ea;       /* Warm Sandstone Tint */
+  --surface-dark: #1f130f;       /* Durbar Midnight Mahogany */
+  
+  --foreground: #2a1610;         /* Charred Teak / Indian Ancient Ink */
+  --foreground-muted: #6e5246;   /* Earth Terracotta Muted */
+  --muted: #74584c;
+  
+  --accent: #8e1b1b;             /* Royal Sindoor Crimson / शाही सिंदूर */
+  --accent-hover: #711313;
+  --accent-light: #fef2f2;
+  
+  --kesar: #d97706;              /* Sacred Saffron / केसरिया */
+  --kesar-hover: #b45309;
+  
+  --gold: #c59b27;               /* Royal Temple Gold / सुवर्ण */
+  --gold-bright: #f59e0b;        /* Kundan Gold / कुंदन */
+  --gold-light: #fef8eb;
+  
+  --peacock: #09503f;            /* Mayur Pankhi Teal / मयूर पंख */
+  --peacock-light: #0d7e67;
+  
+  --border: #dfc89d;             /* Antique Brass Border / पीतल */
+  --border-subtle: #eedebf;
+  --ring: #d97706;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
+  --color-surface-warm: var(--surface-warm);
+  --color-surface-dark: var(--surface-dark);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
   --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-kesar: var(--kesar);
+  --color-gold: var(--gold);
+  --color-peacock: var(--peacock);
+  
+  --font-royal: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-serif-royal: 'Marcellus', 'Cinzel', serif;
+  --font-traditional: 'Rozha One', 'Yatra One', serif;
+  --font-devanagari: 'Yatra One', 'Rozha One', cursive, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(217, 119, 6, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(142, 27, 27, 0.04) 0%, transparent 40%),
+    linear-gradient(to bottom, #fdfaf3, #f7f1e1);
+  min-height: 100vh;
 }
 
+/* Medieval Traditional Fonts */
+.font-royal-title {
+  font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+}
+
+.font-royal-sub {
+  font-family: 'Marcellus', 'Cinzel', serif;
+  letter-spacing: 0.02em;
+}
+
+.font-traditional {
+  font-family: 'Rozha One', 'Yatra One', serif;
+}
+
+.font-devanagari {
+  font-family: 'Yatra One', 'Rozha One', cursive, serif;
+}
+
+/* Royal Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #996515 0%, #d4af37 40%, #f6e27a 65%, #aa771c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kesar-gradient-text {
+  background: linear-gradient(135deg, #b91c1c 0%, #d97706 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.peacock-gradient-text {
+  background: linear-gradient(135deg, #09503f 0%, #0d7e67 60%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ornate Medieval Borders */
+.royal-box {
+  background: #ffffff;
+  border: 1px solid #dfc89d;
+  box-shadow: 0 4px 20px -2px rgba(139, 90, 43, 0.08), 0 0 0 1px rgba(223, 200, 157, 0.35);
+  position: relative;
+}
+
+.royal-box::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(197, 155, 39, 0.25);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.royal-box-accent {
+  background: linear-gradient(180deg, #ffffff 0%, #fcf8ee 100%);
+  border: 1px solid #d4af37;
+  box-shadow: 0 10px 30px -4px rgba(180, 83, 9, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+/* Indian Jharokha Scallop Header */
+.jharokha-arch {
+  position: relative;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+}
+
+/* Traditional Torana Border */
+.torana-top-border {
+  border-top: 3px solid #c59b27;
+  position: relative;
+}
+.torana-top-border::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #8e1b1b;
+}
+
+/* Auspicious Glow */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.28);
+}
+
+.sindoor-glow {
+  box-shadow: 0 0 25px rgba(142, 27, 27, 0.22);
+}
+
+/* Focus style with royal amber outline */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #d97706;
   outline-offset: 2px;
+}
+
+/* Scrollbar styling in antique brass */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f1e1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c59b27;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #996515;
 }
