@@ -1,0 +1,1420 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-02T17:30:03.394Z",
+  "intraCityInterchanges": {
+    "BLR": [
+      {
+        "fromNodeCode": "BLR",
+        "toNodeCode": "SBC",
+        "cityId": "BLR",
+        "mode": "shuttle",
+        "durationMinutes": 80,
+        "distanceKm": 34.8,
+        "description": "BMTC Vayu Vajra Airport AC Bus (KIA-9) via NH44 Bellary Rd",
+        "estCost": 260
+      },
+      {
+        "fromNodeCode": "BLR",
+        "toNodeCode": "SBC",
+        "cityId": "BLR",
+        "mode": "cab",
+        "durationMinutes": 65,
+        "distanceKm": 34.8,
+        "description": "Prepaid Airport Taxi / Uber via NH44 Elevated Expressway",
+        "estCost": 950
+      },
+      {
+        "fromNodeCode": "BLR",
+        "toNodeCode": "MJC",
+        "cityId": "BLR",
+        "mode": "shuttle",
+        "durationMinutes": 75,
+        "distanceKm": 34.5,
+        "description": "BMTC Vayu Vajra Airport AC Bus to Majestic Central Terminal",
+        "estCost": 260
+      },
+      {
+        "fromNodeCode": "SBC",
+        "toNodeCode": "MJC",
+        "cityId": "BLR",
+        "mode": "walk",
+        "durationMinutes": 6,
+        "distanceKm": 0.4,
+        "description": "Subterranean direct pedestrian walkway between KSR Station & Majestic Bus Terminal",
+        "estCost": 0
+      }
+    ],
+    "DEL": [
+      {
+        "fromNodeCode": "DEL",
+        "toNodeCode": "NDLS",
+        "cityId": "DEL",
+        "mode": "metro",
+        "durationMinutes": 22,
+        "distanceKm": 15.6,
+        "description": "Delhi Metro Airport Express Orange Line (IGI T3 to New Delhi Metro Station)",
+        "estCost": 60
+      },
+      {
+        "fromNodeCode": "DEL",
+        "toNodeCode": "NDLS",
+        "cityId": "DEL",
+        "mode": "cab",
+        "durationMinutes": 45,
+        "distanceKm": 16.2,
+        "description": "Direct Cab via Vande Mataram Marg & Shanti Path",
+        "estCost": 450
+      },
+      {
+        "fromNodeCode": "DEL",
+        "toNodeCode": "ISBT",
+        "cityId": "DEL",
+        "mode": "metro",
+        "durationMinutes": 38,
+        "distanceKm": 23.8,
+        "description": "Airport Express to NDLS, transfer to Yellow Line to Kashmere Gate ISBT",
+        "estCost": 80
+      },
+      {
+        "fromNodeCode": "NDLS",
+        "toNodeCode": "ISBT",
+        "cityId": "DEL",
+        "mode": "metro",
+        "durationMinutes": 16,
+        "distanceKm": 4.8,
+        "description": "Delhi Metro Yellow Line direct (New Delhi to Kashmere Gate Station)",
+        "estCost": 30
+      }
+    ],
+    "BOM": [
+      {
+        "fromNodeCode": "BOM",
+        "toNodeCode": "CSMT",
+        "cityId": "BOM",
+        "mode": "cab",
+        "durationMinutes": 45,
+        "distanceKm": 22.4,
+        "description": "Prepaid Cab / Uber via Eastern Freeway / P D'Mello Rd",
+        "estCost": 480
+      },
+      {
+        "fromNodeCode": "BOM",
+        "toNodeCode": "DDR",
+        "cityId": "BOM",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 11.2,
+        "description": "Direct Cab/Taxi via Western Express Highway",
+        "estCost": 280
+      },
+      {
+        "fromNodeCode": "CSMT",
+        "toNodeCode": "DDR",
+        "cityId": "BOM",
+        "mode": "metro",
+        "durationMinutes": 18,
+        "distanceKm": 9.1,
+        "description": "Mumbai Suburban Central Line Fast Local (CSMT to Dadar)",
+        "estCost": 15
+      }
+    ],
+    "HYD": [
+      {
+        "fromNodeCode": "HYD",
+        "toNodeCode": "SC",
+        "cityId": "HYD",
+        "mode": "shuttle",
+        "durationMinutes": 65,
+        "distanceKm": 37.2,
+        "description": "TSRTC Pushpak Airport AC Liner (Direct via PVNR Expressway to Secunderabad)",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "HYD",
+        "toNodeCode": "SC",
+        "cityId": "HYD",
+        "mode": "cab",
+        "durationMinutes": 50,
+        "distanceKm": 37.2,
+        "description": "Prepaid Airport Cab via PVNR Elevated Expressway & Outer Ring Rd",
+        "estCost": 750
+      },
+      {
+        "fromNodeCode": "HYD",
+        "toNodeCode": "MGBS",
+        "cityId": "HYD",
+        "mode": "shuttle",
+        "durationMinutes": 45,
+        "distanceKm": 27.8,
+        "description": "TSRTC Pushpak Airport Liner to MGBS Imlibun Terminal",
+        "estCost": 200
+      },
+      {
+        "fromNodeCode": "SC",
+        "toNodeCode": "MGBS",
+        "cityId": "HYD",
+        "mode": "metro",
+        "durationMinutes": 24,
+        "distanceKm": 9.4,
+        "description": "Hyderabad Metro Green Line (Secunderabad West to MGBS Station)",
+        "estCost": 45
+      }
+    ],
+    "MAA": [
+      {
+        "fromNodeCode": "MAA",
+        "toNodeCode": "MAS",
+        "cityId": "MAA",
+        "mode": "metro",
+        "durationMinutes": 38,
+        "distanceKm": 21.2,
+        "description": "Chennai Metro Blue Line Direct (Airport Metro to Puratchi Thalaivar Dr. MGR Central)",
+        "estCost": 50
+      },
+      {
+        "fromNodeCode": "MAA",
+        "toNodeCode": "MAS",
+        "cityId": "MAA",
+        "mode": "cab",
+        "durationMinutes": 50,
+        "distanceKm": 21.2,
+        "description": "Direct Cab via Anna Salai / Grand Southern Trunk Rd",
+        "estCost": 520
+      },
+      {
+        "fromNodeCode": "MAA",
+        "toNodeCode": "CMBT",
+        "cityId": "MAA",
+        "mode": "metro",
+        "durationMinutes": 25,
+        "distanceKm": 13.8,
+        "description": "Chennai Metro Green Line (Airport to Koyambedu CMBT)",
+        "estCost": 40
+      },
+      {
+        "fromNodeCode": "MAS",
+        "toNodeCode": "CMBT",
+        "cityId": "MAA",
+        "mode": "metro",
+        "durationMinutes": 22,
+        "distanceKm": 10.6,
+        "description": "Chennai Metro Green Line (Central Metro to Koyambedu CMBT)",
+        "estCost": 40
+      }
+    ],
+    "CCU": [
+      {
+        "fromNodeCode": "CCU",
+        "toNodeCode": "HWH",
+        "cityId": "CCU",
+        "mode": "cab",
+        "durationMinutes": 45,
+        "distanceKm": 16.5,
+        "description": "Prepaid Taxi / Uber via Belghoria Expressway to Howrah Junction",
+        "estCost": 450
+      },
+      {
+        "fromNodeCode": "CCU",
+        "toNodeCode": "SDAH",
+        "cityId": "CCU",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 14.8,
+        "description": "Yellow Taxi / Cab via VIP Road to Sealdah Station",
+        "estCost": 380
+      },
+      {
+        "fromNodeCode": "HWH",
+        "toNodeCode": "DTC",
+        "cityId": "CCU",
+        "mode": "metro",
+        "durationMinutes": 12,
+        "distanceKm": 4.2,
+        "description": "Kolkata Metro Green Line (Underwater Hooghly Metro to Esplanade)",
+        "estCost": 10
+      }
+    ],
+    "PNQ": [
+      {
+        "fromNodeCode": "PNQ",
+        "toNodeCode": "PUNE",
+        "cityId": "PNQ",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 9.8,
+        "description": "Direct Cab via Airport Rd to Pune Junction Railway Station",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "PNQ",
+        "toNodeCode": "SWG",
+        "cityId": "PNQ",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 14.2,
+        "description": "Cab via Pune-Satara Road to Swargate Central Bus Station",
+        "estCost": 350
+      },
+      {
+        "fromNodeCode": "PUNE",
+        "toNodeCode": "SWG",
+        "cityId": "PNQ",
+        "mode": "metro",
+        "durationMinutes": 14,
+        "distanceKm": 4.8,
+        "description": "Pune Metro Purple Line (Pune Station to Swargate Underground Station)",
+        "estCost": 20
+      }
+    ],
+    "AMD": [
+      {
+        "fromNodeCode": "AMD",
+        "toNodeCode": "ADI",
+        "cityId": "AMD",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 8.5,
+        "description": "Direct Taxi/Cab via Airport Rd to Ahmedabad Junction (Kalupur)",
+        "estCost": 220
+      },
+      {
+        "fromNodeCode": "AMD",
+        "toNodeCode": "GMB",
+        "cityId": "AMD",
+        "mode": "cab",
+        "durationMinutes": 24,
+        "distanceKm": 9.8,
+        "description": "Cab via SP Ring Rd to Geeta Mandir Bus Port",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "ADI",
+        "toNodeCode": "GMB",
+        "cityId": "AMD",
+        "mode": "shuttle",
+        "durationMinutes": 8,
+        "distanceKm": 2.1,
+        "description": "Ahmedabad Janmarg BRTS Direct (Kalupur to Geeta Mandir)",
+        "estCost": 10
+      }
+    ],
+    "JAI": [
+      {
+        "fromNodeCode": "JAI",
+        "toNodeCode": "JP",
+        "cityId": "JAI",
+        "mode": "cab",
+        "durationMinutes": 30,
+        "distanceKm": 12.8,
+        "description": "Direct Cab via Tonk Road / JLN Marg to Jaipur Junction",
+        "estCost": 300
+      },
+      {
+        "fromNodeCode": "JAI",
+        "toNodeCode": "SCB",
+        "cityId": "JAI",
+        "mode": "cab",
+        "durationMinutes": 32,
+        "distanceKm": 13.5,
+        "description": "Cab via Tonk Road to Sindhi Camp Central Bus Stand",
+        "estCost": 320
+      },
+      {
+        "fromNodeCode": "JP",
+        "toNodeCode": "SCB",
+        "cityId": "JAI",
+        "mode": "walk",
+        "durationMinutes": 12,
+        "distanceKm": 1.6,
+        "description": "Short walk or E-Rickshaw from Jaipur Railway Station to Sindhi Camp",
+        "estCost": 20
+      }
+    ],
+    "COK": [
+      {
+        "fromNodeCode": "COK",
+        "toNodeCode": "ERS",
+        "cityId": "COK",
+        "mode": "cab",
+        "durationMinutes": 55,
+        "distanceKm": 28.5,
+        "description": "Prepaid Airport Cab via NH544 to Ernakulam South Junction",
+        "estCost": 750
+      },
+      {
+        "fromNodeCode": "COK",
+        "toNodeCode": "VMH",
+        "cityId": "COK",
+        "mode": "cab",
+        "durationMinutes": 50,
+        "distanceKm": 27.2,
+        "description": "Cab via Seaport-Airport Road to Vyttila Mobility Hub",
+        "estCost": 700
+      },
+      {
+        "fromNodeCode": "ERS",
+        "toNodeCode": "VMH",
+        "cityId": "COK",
+        "mode": "metro",
+        "durationMinutes": 14,
+        "distanceKm": 5.2,
+        "description": "Kochi Metro Direct (Ernakulam South to Vyttila Station)",
+        "estCost": 20
+      }
+    ],
+    "GOI": [
+      {
+        "fromNodeCode": "GOI",
+        "toNodeCode": "MAO",
+        "cityId": "GOI",
+        "mode": "cab",
+        "durationMinutes": 40,
+        "distanceKm": 27.4,
+        "description": "Goa Miles / Airport Taxi via NH66 to Madgaon Railway Junction",
+        "estCost": 850
+      },
+      {
+        "fromNodeCode": "GOI",
+        "toNodeCode": "PNJ",
+        "cityId": "GOI",
+        "mode": "shuttle",
+        "durationMinutes": 45,
+        "distanceKm": 28.6,
+        "description": "Kadamba Transport AC Airport Shuttle to Panaji Bus Stand",
+        "estCost": 150
+      },
+      {
+        "fromNodeCode": "MAO",
+        "toNodeCode": "PNJ",
+        "cityId": "GOI",
+        "mode": "shuttle",
+        "durationMinutes": 50,
+        "distanceKm": 33.2,
+        "description": "Kadamba Non-Stop AC Express Bus (Madgaon to Panaji)",
+        "estCost": 50
+      }
+    ],
+    "LKO": [
+      {
+        "fromNodeCode": "LKO",
+        "toNodeCode": "LKO",
+        "cityId": "LKO",
+        "mode": "metro",
+        "durationMinutes": 20,
+        "distanceKm": 11.4,
+        "description": "Lucknow Metro Red Line Direct (Chaudhary Charan Singh Airport to Charbagh)",
+        "estCost": 35
+      },
+      {
+        "fromNodeCode": "LKO",
+        "toNodeCode": "ABT",
+        "cityId": "LKO",
+        "mode": "metro",
+        "durationMinutes": 14,
+        "distanceKm": 8.5,
+        "description": "Lucknow Metro Red Line to Alambagh Multimodal Bus Port",
+        "estCost": 25
+      },
+      {
+        "fromNodeCode": "LKO",
+        "toNodeCode": "ABT",
+        "cityId": "LKO",
+        "mode": "metro",
+        "durationMinutes": 6,
+        "distanceKm": 2.8,
+        "description": "Lucknow Metro (Charbagh to Alambagh Bus Station)",
+        "estCost": 10
+      }
+    ],
+    "ATQ": [
+      {
+        "fromNodeCode": "ATQ",
+        "toNodeCode": "ASR",
+        "cityId": "ATQ",
+        "mode": "cab",
+        "durationMinutes": 22,
+        "distanceKm": 11.2,
+        "description": "Prepaid Cab via Ajnala Road to Amritsar Junction Railway Station",
+        "estCost": 280
+      },
+      {
+        "fromNodeCode": "ATQ",
+        "toNodeCode": "ASRB",
+        "cityId": "ATQ",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 12.8,
+        "description": "Cab via Ajnala Rd to Amritsar Central Bus Stand",
+        "estCost": 300
+      },
+      {
+        "fromNodeCode": "ASR",
+        "toNodeCode": "ASRB",
+        "cityId": "ATQ",
+        "mode": "cab",
+        "durationMinutes": 8,
+        "distanceKm": 2.5,
+        "description": "Direct Auto / E-rickshaw to Bus Stand",
+        "estCost": 40
+      }
+    ],
+    "BBI": [
+      {
+        "fromNodeCode": "BBI",
+        "toNodeCode": "BBS",
+        "cityId": "BBI",
+        "mode": "cab",
+        "durationMinutes": 12,
+        "distanceKm": 4.5,
+        "description": "Direct Cab / Mo Bus via Airport Road to Bhubaneswar Railway Station",
+        "estCost": 150
+      },
+      {
+        "fromNodeCode": "BBI",
+        "toNodeCode": "BRMB",
+        "cityId": "BBI",
+        "mode": "cab",
+        "durationMinutes": 18,
+        "distanceKm": 7.2,
+        "description": "Cab to Baramunda ISBT Bus Terminal",
+        "estCost": 200
+      },
+      {
+        "fromNodeCode": "BBS",
+        "toNodeCode": "BRMB",
+        "cityId": "BBI",
+        "mode": "shuttle",
+        "durationMinutes": 16,
+        "distanceKm": 6.8,
+        "description": "Mo Bus AC Route 10 (Master Canteen to Baramunda ISBT)",
+        "estCost": 20
+      }
+    ],
+    "VNS": [
+      {
+        "fromNodeCode": "VNS",
+        "toNodeCode": "BSB",
+        "cityId": "VNS",
+        "mode": "cab",
+        "durationMinutes": 45,
+        "distanceKm": 22.8,
+        "description": "Prepaid Cab via NH31 / Babatpur Highway to Varanasi Cantt",
+        "estCost": 600
+      },
+      {
+        "fromNodeCode": "VNS",
+        "toNodeCode": "VNSB",
+        "cityId": "VNS",
+        "mode": "cab",
+        "durationMinutes": 46,
+        "distanceKm": 23.2,
+        "description": "Cab via NH31 to Varanasi Central Bus Stand",
+        "estCost": 600
+      },
+      {
+        "fromNodeCode": "BSB",
+        "toNodeCode": "VNSB",
+        "cityId": "VNS",
+        "mode": "walk",
+        "durationMinutes": 4,
+        "distanceKm": 0.8,
+        "description": "Short pedestrian walk across Cantt station plaza to bus terminal",
+        "estCost": 0
+      }
+    ],
+    "GAU": [
+      {
+        "fromNodeCode": "GAU",
+        "toNodeCode": "GHY",
+        "cityId": "GAU",
+        "mode": "cab",
+        "durationMinutes": 45,
+        "distanceKm": 21.5,
+        "description": "Prepaid Taxi via VIP Road & GS Road to Guwahati Railway Junction",
+        "estCost": 550
+      },
+      {
+        "fromNodeCode": "GAU",
+        "toNodeCode": "GAUB",
+        "cityId": "GAU",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 18.2,
+        "description": "Cab to ISBT Betkuchi Bus Station Guwahati",
+        "estCost": 480
+      },
+      {
+        "fromNodeCode": "GHY",
+        "toNodeCode": "GAUB",
+        "cityId": "GAU",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 9.8,
+        "description": "City Bus / Cab from Paltan Bazaar to ISBT Betkuchi",
+        "estCost": 150
+      }
+    ],
+    "IDR": [
+      {
+        "fromNodeCode": "IDR",
+        "toNodeCode": "INDB",
+        "cityId": "IDR",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 8.2,
+        "description": "Direct Taxi/Auto via Airport Rd to Indore Junction Railway Station",
+        "estCost": 220
+      },
+      {
+        "fromNodeCode": "IDR",
+        "toNodeCode": "IDRB",
+        "cityId": "IDR",
+        "mode": "cab",
+        "durationMinutes": 22,
+        "distanceKm": 8.8,
+        "description": "Cab via Airport Rd to Sarwate Bus Stand Indore",
+        "estCost": 240
+      },
+      {
+        "fromNodeCode": "INDB",
+        "toNodeCode": "IDRB",
+        "cityId": "IDR",
+        "mode": "walk",
+        "durationMinutes": 5,
+        "distanceKm": 0.5,
+        "description": "Immediate pedestrian walk right outside station to Sarwate Bus Stand",
+        "estCost": 0
+      }
+    ],
+    "BHO": [
+      {
+        "fromNodeCode": "BHO",
+        "toNodeCode": "BPL",
+        "cityId": "BHO",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 16.2,
+        "description": "Prepaid Cab via VIP Road / Kamla Park to Bhopal Junction",
+        "estCost": 380
+      },
+      {
+        "fromNodeCode": "BHO",
+        "toNodeCode": "BHOB",
+        "cityId": "BHO",
+        "mode": "cab",
+        "durationMinutes": 38,
+        "distanceKm": 18.5,
+        "description": "Cab via Link Rd to ISBT Bhopal Bus Terminal",
+        "estCost": 420
+      },
+      {
+        "fromNodeCode": "BPL",
+        "toNodeCode": "BHOB",
+        "cityId": "BHO",
+        "mode": "shuttle",
+        "durationMinutes": 12,
+        "distanceKm": 4.8,
+        "description": "BCLL City Bus (Bhopal Station to Habibganj ISBT)",
+        "estCost": 15
+      }
+    ],
+    "NAG": [
+      {
+        "fromNodeCode": "NAG",
+        "toNodeCode": "NGP",
+        "cityId": "NAG",
+        "mode": "metro",
+        "durationMinutes": 18,
+        "distanceKm": 9.2,
+        "description": "Nagpur Metro Orange Line Direct (Airport Metro to Nagpur Railway Station)",
+        "estCost": 25
+      },
+      {
+        "fromNodeCode": "NAG",
+        "toNodeCode": "NAGB",
+        "cityId": "NAG",
+        "mode": "metro",
+        "durationMinutes": 16,
+        "distanceKm": 8.5,
+        "description": "Nagpur Metro Orange Line to Ganeshpeth MSRTC Bus Stand",
+        "estCost": 25
+      },
+      {
+        "fromNodeCode": "NGP",
+        "toNodeCode": "NAGB",
+        "cityId": "NAG",
+        "mode": "cab",
+        "durationMinutes": 7,
+        "distanceKm": 2.2,
+        "description": "Auto / Cab from Nagpur Station to Ganeshpeth",
+        "estCost": 40
+      }
+    ],
+    "IXC": [
+      {
+        "fromNodeCode": "IXC",
+        "toNodeCode": "CDG",
+        "cityId": "IXC",
+        "mode": "cab",
+        "durationMinutes": 22,
+        "distanceKm": 12.5,
+        "description": "Cab via Aerocity Road to Chandigarh Junction Railway Station",
+        "estCost": 300
+      },
+      {
+        "fromNodeCode": "IXC",
+        "toNodeCode": "CDGB",
+        "cityId": "IXC",
+        "mode": "cab",
+        "durationMinutes": 28,
+        "distanceKm": 14.8,
+        "description": "Cab via Airport Rd to ISBT Sector 43 Bus Stand Chandigarh",
+        "estCost": 350
+      },
+      {
+        "fromNodeCode": "CDG",
+        "toNodeCode": "CDGB",
+        "cityId": "IXC",
+        "mode": "shuttle",
+        "durationMinutes": 20,
+        "distanceKm": 9.2,
+        "description": "CTU AC City Bus (Railway Station to Sector 43 ISBT)",
+        "estCost": 30
+      }
+    ],
+    "STV": [
+      {
+        "fromNodeCode": "STV",
+        "toNodeCode": "ST",
+        "cityId": "STV",
+        "mode": "cab",
+        "durationMinutes": 30,
+        "distanceKm": 15.8,
+        "description": "Prepaid Cab via Dumas Rd & Ring Rd to Surat Railway Junction",
+        "estCost": 350
+      },
+      {
+        "fromNodeCode": "STV",
+        "toNodeCode": "STVB",
+        "cityId": "STV",
+        "mode": "cab",
+        "durationMinutes": 28,
+        "distanceKm": 15.2,
+        "description": "Cab to GSRTC Central Bus Port Surat",
+        "estCost": 340
+      },
+      {
+        "fromNodeCode": "ST",
+        "toNodeCode": "STVB",
+        "cityId": "STV",
+        "mode": "walk",
+        "durationMinutes": 4,
+        "distanceKm": 0.6,
+        "description": "Walkway across platform concourse to Central Bus Port",
+        "estCost": 0
+      }
+    ],
+    "VTZ": [
+      {
+        "fromNodeCode": "VTZ",
+        "toNodeCode": "VSKP",
+        "cityId": "VTZ",
+        "mode": "cab",
+        "durationMinutes": 18,
+        "distanceKm": 7.8,
+        "description": "Direct Cab via NH16 to Visakhapatnam Junction Railway Station",
+        "estCost": 220
+      },
+      {
+        "fromNodeCode": "VTZ",
+        "toNodeCode": "VTZB",
+        "cityId": "VTZ",
+        "mode": "cab",
+        "durationMinutes": 22,
+        "distanceKm": 9.5,
+        "description": "Cab via NH16 to Dwaraka RTC Complex Bus Station",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "VSKP",
+        "toNodeCode": "VTZB",
+        "cityId": "VTZ",
+        "mode": "cab",
+        "durationMinutes": 6,
+        "distanceKm": 2.1,
+        "description": "Direct Auto to Dwaraka RTC Bus Station",
+        "estCost": 40
+      }
+    ],
+    "CJB": [
+      {
+        "fromNodeCode": "CJB",
+        "toNodeCode": "CBE",
+        "cityId": "CJB",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 10.5,
+        "description": "Cab via Avinashi Rd (NH544) to Coimbatore Junction",
+        "estCost": 280
+      },
+      {
+        "fromNodeCode": "CJB",
+        "toNodeCode": "CJBB",
+        "cityId": "CJB",
+        "mode": "cab",
+        "durationMinutes": 22,
+        "distanceKm": 9.2,
+        "description": "Cab to Gandhipuram Central Bus Stand",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "CBE",
+        "toNodeCode": "CJBB",
+        "cityId": "CJB",
+        "mode": "cab",
+        "durationMinutes": 8,
+        "distanceKm": 2.5,
+        "description": "Auto / City bus from Coimbatore Station to Gandhipuram",
+        "estCost": 40
+      }
+    ],
+    "IXM": [
+      {
+        "fromNodeCode": "IXM",
+        "toNodeCode": "MDU",
+        "cityId": "IXM",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 12.2,
+        "description": "Prepaid Cab via Ring Road to Madurai Junction Railway Station",
+        "estCost": 320
+      },
+      {
+        "fromNodeCode": "IXM",
+        "toNodeCode": "IXMB",
+        "cityId": "IXM",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 18.5,
+        "description": "Cab via Ring Rd to Mattuthavani Integrated Bus Terminus",
+        "estCost": 420
+      },
+      {
+        "fromNodeCode": "MDU",
+        "toNodeCode": "IXMB",
+        "cityId": "IXM",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 7.2,
+        "description": "Direct City Bus / Auto from Madurai Station to Mattuthavani",
+        "estCost": 120
+      }
+    ],
+    "DED": [
+      {
+        "fromNodeCode": "DED",
+        "toNodeCode": "DED",
+        "cityId": "DED",
+        "mode": "cab",
+        "durationMinutes": 50,
+        "distanceKm": 28.5,
+        "description": "Taxi via Rishikesh-Dehradun Highway to Dehradun Railway Station",
+        "estCost": 750
+      },
+      {
+        "fromNodeCode": "DED",
+        "toNodeCode": "DEDB",
+        "cityId": "DED",
+        "mode": "cab",
+        "durationMinutes": 55,
+        "distanceKm": 30.2,
+        "description": "Taxi via Haridwar Bypass to ISBT Dehradun",
+        "estCost": 800
+      },
+      {
+        "fromNodeCode": "DED",
+        "toNodeCode": "DEDB",
+        "cityId": "DED",
+        "mode": "cab",
+        "durationMinutes": 15,
+        "distanceKm": 5.8,
+        "description": "City Bus / Vikram Auto from Dehradun Station to ISBT",
+        "estCost": 80
+      }
+    ],
+    "PAT": [
+      {
+        "fromNodeCode": "PAT",
+        "toNodeCode": "PNBE",
+        "cityId": "PAT",
+        "mode": "cab",
+        "durationMinutes": 16,
+        "distanceKm": 5.8,
+        "description": "Direct Taxi/Auto via Bailey Road to Patna Junction",
+        "estCost": 180
+      },
+      {
+        "fromNodeCode": "PAT",
+        "toNodeCode": "PATB",
+        "cityId": "PAT",
+        "mode": "cab",
+        "durationMinutes": 35,
+        "distanceKm": 15.2,
+        "description": "Cab via New Bypass to Bairiya ISBT Bus Terminal",
+        "estCost": 380
+      },
+      {
+        "fromNodeCode": "PNBE",
+        "toNodeCode": "PATB",
+        "cityId": "PAT",
+        "mode": "cab",
+        "durationMinutes": 28,
+        "distanceKm": 11.5,
+        "description": "Cab / Auto from Patna Station to Bairiya ISBT",
+        "estCost": 250
+      }
+    ],
+    "RPR": [
+      {
+        "fromNodeCode": "RPR",
+        "toNodeCode": "R",
+        "cityId": "RPR",
+        "mode": "cab",
+        "durationMinutes": 32,
+        "distanceKm": 15.8,
+        "description": "Prepaid Cab via VIP Road & GE Road to Raipur Junction",
+        "estCost": 350
+      },
+      {
+        "fromNodeCode": "RPR",
+        "toNodeCode": "RPRB",
+        "cityId": "RPR",
+        "mode": "cab",
+        "durationMinutes": 30,
+        "distanceKm": 14.5,
+        "description": "Cab to Sri Balaji Pandri Bus Stand Raipur",
+        "estCost": 320
+      },
+      {
+        "fromNodeCode": "R",
+        "toNodeCode": "RPRB",
+        "cityId": "RPR",
+        "mode": "cab",
+        "durationMinutes": 10,
+        "distanceKm": 3.2,
+        "description": "Auto / City bus from Raipur Station to Pandri Bus Stand",
+        "estCost": 60
+      }
+    ],
+    "RNC": [
+      {
+        "fromNodeCode": "RNC",
+        "toNodeCode": "RNC",
+        "cityId": "RNC",
+        "mode": "cab",
+        "durationMinutes": 15,
+        "distanceKm": 6.2,
+        "description": "Direct Taxi via Hinoo Main Road to Ranchi Junction",
+        "estCost": 180
+      },
+      {
+        "fromNodeCode": "RNC",
+        "toNodeCode": "RNCB",
+        "cityId": "RNC",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 8.5,
+        "description": "Cab to Khadgarha ISBT Bus Stand Ranchi",
+        "estCost": 220
+      },
+      {
+        "fromNodeCode": "RNC",
+        "toNodeCode": "RNCB",
+        "cityId": "RNC",
+        "mode": "cab",
+        "durationMinutes": 8,
+        "distanceKm": 2.8,
+        "description": "Auto from Ranchi Railway Station to Khadgarha ISBT",
+        "estCost": 50
+      }
+    ],
+    "IXJ": [
+      {
+        "fromNodeCode": "IXJ",
+        "toNodeCode": "JAT",
+        "cityId": "IXJ",
+        "mode": "cab",
+        "durationMinutes": 14,
+        "distanceKm": 5.4,
+        "description": "Taxi via Satwari Main Rd to Jammu Tawi Railway Station",
+        "estCost": 160
+      },
+      {
+        "fromNodeCode": "IXJ",
+        "toNodeCode": "IXJB",
+        "cityId": "IXJ",
+        "mode": "cab",
+        "durationMinutes": 18,
+        "distanceKm": 6.8,
+        "description": "Cab via Canal Rd to Jammu General Bus Stand",
+        "estCost": 180
+      },
+      {
+        "fromNodeCode": "JAT",
+        "toNodeCode": "IXJB",
+        "cityId": "IXJ",
+        "mode": "cab",
+        "durationMinutes": 12,
+        "distanceKm": 4.2,
+        "description": "Auto from Jammu Tawi Station to General Bus Stand",
+        "estCost": 80
+      }
+    ],
+    "SXR": [
+      {
+        "fromNodeCode": "SXR",
+        "toNodeCode": "SRE",
+        "cityId": "SXR",
+        "mode": "cab",
+        "durationMinutes": 28,
+        "distanceKm": 12.8,
+        "description": "Taxi via Airport Rd & Hyderpora to Srinagar Railway Station (Nowgam)",
+        "estCost": 450
+      },
+      {
+        "fromNodeCode": "SXR",
+        "toNodeCode": "SXRB",
+        "cityId": "SXR",
+        "mode": "cab",
+        "durationMinutes": 25,
+        "distanceKm": 11.5,
+        "description": "Cab to TRC Bus Terminal Srinagar",
+        "estCost": 400
+      },
+      {
+        "fromNodeCode": "SRE",
+        "toNodeCode": "SXRB",
+        "cityId": "SXR",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 8.5,
+        "description": "Taxi from Srinagar Station to TRC Tourist Reception Centre",
+        "estCost": 250
+      }
+    ],
+    "TRV": [
+      {
+        "fromNodeCode": "TRV",
+        "toNodeCode": "TVC",
+        "cityId": "TRV",
+        "mode": "cab",
+        "durationMinutes": 14,
+        "distanceKm": 5.2,
+        "description": "Prepaid Cab via Chakka Bypass to Thiruvananthapuram Central",
+        "estCost": 180
+      },
+      {
+        "fromNodeCode": "TRV",
+        "toNodeCode": "TRVB",
+        "cityId": "TRV",
+        "mode": "cab",
+        "durationMinutes": 15,
+        "distanceKm": 5.5,
+        "description": "Cab to Thampanoor KSRTC Central Bus Station",
+        "estCost": 190
+      },
+      {
+        "fromNodeCode": "TVC",
+        "toNodeCode": "TRVB",
+        "cityId": "TRV",
+        "mode": "walk",
+        "durationMinutes": 3,
+        "distanceKm": 0.2,
+        "description": "Direct subterranean pedestrian subway between Trivandrum Central & Thampanoor Bus Stand",
+        "estCost": 0
+      }
+    ],
+    "BDQ": [
+      {
+        "fromNodeCode": "BDQ",
+        "toNodeCode": "BRC",
+        "cityId": "BDQ",
+        "mode": "cab",
+        "durationMinutes": 16,
+        "distanceKm": 6.5,
+        "description": "Cab via Harni Road to Vadodara Railway Junction",
+        "estCost": 180
+      },
+      {
+        "fromNodeCode": "BDQ",
+        "toNodeCode": "BDQB",
+        "cityId": "BDQ",
+        "mode": "cab",
+        "durationMinutes": 18,
+        "distanceKm": 6.8,
+        "description": "Cab to Central Bus Terminal Vadodara",
+        "estCost": 190
+      },
+      {
+        "fromNodeCode": "BRC",
+        "toNodeCode": "BDQB",
+        "cityId": "BDQ",
+        "mode": "walk",
+        "durationMinutes": 3,
+        "distanceKm": 0.3,
+        "description": "Direct walkway across the street to Central Bus Terminal",
+        "estCost": 0
+      }
+    ],
+    "AYJ": [
+      {
+        "fromNodeCode": "AYJ",
+        "toNodeCode": "AY",
+        "cityId": "AYJ",
+        "mode": "cab",
+        "durationMinutes": 20,
+        "distanceKm": 9.2,
+        "description": "Direct Cab / E-Bus via Ram Path to Ayodhya Dham Railway Junction",
+        "estCost": 280
+      },
+      {
+        "fromNodeCode": "AYJ",
+        "toNodeCode": "AYDB",
+        "cityId": "AYJ",
+        "mode": "cab",
+        "durationMinutes": 18,
+        "distanceKm": 8.5,
+        "description": "Cab to Ayodhya Central Bus Station",
+        "estCost": 250
+      },
+      {
+        "fromNodeCode": "AY",
+        "toNodeCode": "AYDB",
+        "cityId": "AYJ",
+        "mode": "walk",
+        "durationMinutes": 8,
+        "distanceKm": 1.5,
+        "description": "E-rickshaw / walk to Ayodhya Central Bus Stand",
+        "estCost": 20
+      }
+    ]
+  },
+  "interCityDistances": [
+    {
+      "origin": "BLR",
+      "destination": "DEL",
+      "roadKm": 2165,
+      "railKm": 2367,
+      "flightKm": 1740,
+      "roadHours": 35,
+      "railHours": 33,
+      "flightHours": 2.75,
+      "primaryHighway": "NH44 (North-South Corridor)"
+    },
+    {
+      "origin": "BOM",
+      "destination": "DEL",
+      "roadKm": 1415,
+      "railKm": 1384,
+      "flightKm": 1148,
+      "roadHours": 22,
+      "railHours": 15.5,
+      "flightHours": 2.1,
+      "primaryHighway": "NE4 (Delhi-Mumbai Expressway) / NH48"
+    },
+    {
+      "origin": "CCU",
+      "destination": "DEL",
+      "roadKm": 1490,
+      "railKm": 1449,
+      "flightKm": 1305,
+      "roadHours": 24,
+      "railHours": 17.2,
+      "flightHours": 2.3,
+      "primaryHighway": "NH19 (Grand Trunk Road)"
+    },
+    {
+      "origin": "MAA",
+      "destination": "DEL",
+      "roadKm": 2180,
+      "railKm": 2180,
+      "flightKm": 1757,
+      "roadHours": 36,
+      "railHours": 28.5,
+      "flightHours": 2.8,
+      "primaryHighway": "NH44 (Grand Trunk Corridor)"
+    },
+    {
+      "origin": "BLR",
+      "destination": "BOM",
+      "roadKm": 985,
+      "railKm": 1114,
+      "flightKm": 842,
+      "roadHours": 16,
+      "railHours": 22,
+      "flightHours": 1.6,
+      "primaryHighway": "NH48 (Golden Quadrilateral)"
+    },
+    {
+      "origin": "BLR",
+      "destination": "MAA",
+      "roadKm": 346,
+      "railKm": 362,
+      "flightKm": 290,
+      "roadHours": 6.5,
+      "railHours": 4.5,
+      "flightHours": 0.9,
+      "primaryHighway": "NH48 / Bangalore-Chennai Expressway (NE7)"
+    },
+    {
+      "origin": "BLR",
+      "destination": "HYD",
+      "roadKm": 570,
+      "railKm": 618,
+      "flightKm": 500,
+      "roadHours": 8.5,
+      "railHours": 9.5,
+      "flightHours": 1.1,
+      "primaryHighway": "NH44 (Hyderabad-Bangalore Highway)"
+    },
+    {
+      "origin": "BLR",
+      "destination": "GOI",
+      "roadKm": 560,
+      "railKm": 648,
+      "flightKm": 480,
+      "roadHours": 10.5,
+      "railHours": 14,
+      "flightHours": 1.15,
+      "primaryHighway": "NH48 & NH748 (Hubli-Anmod Ghat)"
+    },
+    {
+      "origin": "BLR",
+      "destination": "COK",
+      "roadKm": 540,
+      "railKm": 588,
+      "flightKm": 365,
+      "roadHours": 9.5,
+      "railHours": 10,
+      "flightHours": 1,
+      "primaryHighway": "NH544 / NH44"
+    },
+    {
+      "origin": "BOM",
+      "destination": "HYD",
+      "roadKm": 710,
+      "railKm": 790,
+      "flightKm": 620,
+      "roadHours": 12,
+      "railHours": 13.5,
+      "flightHours": 1.25,
+      "primaryHighway": "NH65 / Mumbai-Pune Expressway"
+    },
+    {
+      "origin": "BOM",
+      "destination": "GOI",
+      "roadKm": 590,
+      "railKm": 580,
+      "flightKm": 435,
+      "roadHours": 10.5,
+      "railHours": 7.75,
+      "flightHours": 1.1,
+      "primaryHighway": "NH66 (Konkan Coast Highway)"
+    },
+    {
+      "origin": "BOM",
+      "destination": "AMD",
+      "roadKm": 525,
+      "railKm": 493,
+      "flightKm": 440,
+      "roadHours": 8.5,
+      "railHours": 5.75,
+      "flightHours": 1.1,
+      "primaryHighway": "NH48 (Western Express Highway)"
+    },
+    {
+      "origin": "DEL",
+      "destination": "JAI",
+      "roadKm": 280,
+      "railKm": 308,
+      "flightKm": 240,
+      "roadHours": 4,
+      "railHours": 4.25,
+      "flightHours": 0.8,
+      "primaryHighway": "NE4 (Delhi-Mumbai Expressway to Dausa)"
+    },
+    {
+      "origin": "DEL",
+      "destination": "LKO",
+      "roadKm": 535,
+      "railKm": 492,
+      "flightKm": 420,
+      "roadHours": 6.5,
+      "railHours": 6,
+      "flightHours": 1,
+      "primaryHighway": "Yamuna Expressway & Agra-Lucknow Expressway"
+    },
+    {
+      "origin": "DEL",
+      "destination": "ATQ",
+      "roadKm": 450,
+      "railKm": 448,
+      "flightKm": 400,
+      "roadHours": 7,
+      "railHours": 5.5,
+      "flightHours": 1,
+      "primaryHighway": "NH44 (Delhi-Amritsar Highway)"
+    },
+    {
+      "origin": "DEL",
+      "destination": "IXC",
+      "roadKm": 245,
+      "railKm": 244,
+      "flightKm": 235,
+      "roadHours": 4,
+      "railHours": 3.25,
+      "flightHours": 0.85,
+      "primaryHighway": "NH44 / Himalayan Expressway"
+    },
+    {
+      "origin": "DEL",
+      "destination": "DED",
+      "roadKm": 250,
+      "railKm": 315,
+      "flightKm": 210,
+      "roadHours": 4.5,
+      "railHours": 5.75,
+      "flightHours": 0.75,
+      "primaryHighway": "Delhi-Dehradun Expressway"
+    },
+    {
+      "origin": "DEL",
+      "destination": "VNS",
+      "roadKm": 815,
+      "railKm": 761,
+      "flightKm": 680,
+      "roadHours": 11.5,
+      "railHours": 8,
+      "flightHours": 1.35,
+      "primaryHighway": "Purvanchal Expressway / NH19"
+    },
+    {
+      "origin": "DEL",
+      "destination": "PAT",
+      "roadKm": 1050,
+      "railKm": 998,
+      "flightKm": 855,
+      "roadHours": 15,
+      "railHours": 11.5,
+      "flightHours": 1.6,
+      "primaryHighway": "NH19 / Purvanchal Expressway"
+    },
+    {
+      "origin": "DEL",
+      "destination": "BHO",
+      "roadKm": 780,
+      "railKm": 701,
+      "flightKm": 600,
+      "roadHours": 12.5,
+      "railHours": 7.5,
+      "flightHours": 1.3,
+      "primaryHighway": "NH44 / Gwalior Highway"
+    },
+    {
+      "origin": "HYD",
+      "destination": "MAA",
+      "roadKm": 630,
+      "railKm": 698,
+      "flightKm": 515,
+      "roadHours": 10,
+      "railHours": 12,
+      "flightHours": 1.1,
+      "primaryHighway": "NH16 & NH65"
+    },
+    {
+      "origin": "CCU",
+      "destination": "BBI",
+      "roadKm": 440,
+      "railKm": 437,
+      "flightKm": 360,
+      "roadHours": 8,
+      "railHours": 6.5,
+      "flightHours": 0.9,
+      "primaryHighway": "NH16 (Chennai-Kolkata Highway)"
+    },
+    {
+      "origin": "CCU",
+      "destination": "PAT",
+      "roadKm": 590,
+      "railKm": 535,
+      "flightKm": 470,
+      "roadHours": 11,
+      "railHours": 8,
+      "flightHours": 1.05,
+      "primaryHighway": "NH19"
+    },
+    {
+      "origin": "AMD",
+      "destination": "JAI",
+      "roadKm": 660,
+      "railKm": 624,
+      "flightKm": 530,
+      "roadHours": 10.5,
+      "railHours": 9.5,
+      "flightHours": 1.1,
+      "primaryHighway": "NH48 (Udaipur-Ajmer Highway)"
+    },
+    {
+      "origin": "MAA",
+      "destination": "COK",
+      "roadKm": 685,
+      "railKm": 692,
+      "flightKm": 550,
+      "roadHours": 11.5,
+      "railHours": 11,
+      "flightHours": 1.15,
+      "primaryHighway": "NH544 / NH44"
+    },
+    {
+      "origin": "DEL",
+      "destination": "SXR",
+      "roadKm": 810,
+      "railKm": 840,
+      "flightKm": 650,
+      "roadHours": 16,
+      "railHours": 18,
+      "flightHours": 1.4,
+      "primaryHighway": "NH44 & Banihal Qazigund Tunnel"
+    },
+    {
+      "origin": "DEL",
+      "destination": "IXJ",
+      "roadKm": 590,
+      "railKm": 580,
+      "flightKm": 500,
+      "roadHours": 9.5,
+      "railHours": 8.5,
+      "flightHours": 1.2,
+      "primaryHighway": "NH44 (Delhi-Jammu)"
+    },
+    {
+      "origin": "BOM",
+      "destination": "PNQ",
+      "roadKm": 150,
+      "railKm": 192,
+      "flightKm": 120,
+      "roadHours": 2.75,
+      "railHours": 3.25,
+      "flightHours": 0.6,
+      "primaryHighway": "Yashwantrao Chavan Mumbai-Pune Expressway"
+    }
+  ],
+  "calibrationFactors": {
+    "roadCircuityRatio": 1.28,
+    "railTrackRatio": 1.22,
+    "averageHighwaySpeedKmph": 72,
+    "averageTrainSpeedKmph": 68,
+    "averageFlightSpeedKmph": 620,
+    "flightClimbDescentMinutes": 30
+  }
+}

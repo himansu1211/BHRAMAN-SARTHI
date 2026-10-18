@@ -1,39 +1,48 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
+import { Yatra_One, Mukta } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { CookieBanner } from "@/components/cookie-banner";
+
+const yatraOne = Yatra_One({
+  weight: "400",
+  subsets: ["devanagari", "latin"],
+  variable: "--font-yatra",
+  display: "swap",
+});
+
+const mukta = Mukta({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["devanagari", "latin"],
+  variable: "--font-mukta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: {
-    default: "BHRAMAN-SARTHI (भ्रमण-सारथी) · Your Indian Travel Companion",
-    template: "%s · BHRAMAN-SARTHI",
-  },
+  title: "Bhraman Sarthi — Thoughtful Travel Across India",
   description:
-    "BHRAMAN-SARTHI (भ्रमण-सारथी) — Your divine travel companion. Deadline-aware journey planner seamlessly connecting flights and trains across Bharatvarsha.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+    "Bhraman Sarthi (भ्रमण सारथी) brings Indian flights, trains, buses, and useful connections together in one clear travel plan.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="flex min-h-full flex-col selection:bg-amber-500/20 selection:text-amber-900">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-amber-700 focus:px-3 focus:py-2 focus:text-white"
-        >
-          Skip to content
-        </a>
-        {/* Sacred Auspicious Top Zari Border */}
-        <div className="h-1.5 w-full bg-gradient-to-r from-amber-700 via-amber-400 to-red-800" />
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+    <html
+      lang="en"
+      className={`${yatraOne.variable} ${mukta.variable} h-full antialiased`}
+    >
+      <head>
+        <meta name="color-scheme" content="light" />
+      </head>
+      <body className="min-h-full flex flex-col bg-paper font-sans text-ink bg-paper-grain selection:bg-amber-200 selection:text-ink">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

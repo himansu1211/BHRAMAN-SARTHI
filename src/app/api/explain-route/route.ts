@@ -1,25 +1,26 @@
-import { generateAiExplanation } from "@/lib/ai/explain-route";
-import { AppError } from "@/lib/errors";
-import { jsonError } from "@/lib/http";
-import { findRouteById } from "@/lib/routing/route-engine";
-import { runSearch } from "@/lib/search/run-search";
-import { parseSearchInput } from "@/lib/validation/search";
+import { NextRequest, NextResponse } from "next/server";
+import { explainRouteWithFallback } from "@/lib/ai/explain-service";
 
-export async function POST(request: Request): Promise<Response> {
+export async function POST(req: NextRequest) {
   try {
-    const body = (await request.json()) as Record<string, unknown>;
-    if (typeof body.routeId !== "string") {
-      throw new AppError("invalid_input", "Missing route.");
-    }
-    const input = parseSearchInput(body);
-    const result = await runSearch({ ...input, includeMissedDeadline: true });
-    const route = findRouteById(result.routes, body.routeId);
+    const body = await req.json();
+    const { route } = body;
+
     if (!route) {
-      throw new AppError("route_not_found", "That route is no longer available.", 404);
+      return NextResponse.json(
+        { error: "Route data is required to generate an explanation." },
+        { status: 400 }
+      );
     }
-    const explanation = await generateAiExplanation(route);
-    return Response.json({ explanation, source: process.env.OPENAI_API_KEY ? "openai" : "template" });
-  } catch (error) {
-    return jsonError(error);
+
+    const explanation = await explainRouteWithFallback(route);
+
+    return NextResponse.json({ explanation });
+  } catch (error: any) {
+    console.error("Explain route error:", error);
+    return NextResponse.json(
+      { error: error.message || "Failed to generate route explanation." },
+      { status: 500 }
+    );
   }
 }

@@ -1,100 +1,113 @@
-import { calculateArrivalConfidence } from "@/lib/routing/confidence";
-import {
-  availableTransferMinutes,
-  requiredTransferMinutes,
-} from "@/lib/routing/connection-validator";
-import { calculateDeadlineBuffer } from "@/lib/routing/deadline-calculator";
-import { addMinutes } from "@/lib/time";
-import type { DelaySimulation, TravelRoute } from "@/lib/types/travel";
+import { DelaySimulationImpact, TravelRoute } from "../types";
+import { validateConnection } from "./connection-validator";
+import { calculateDeadlineBufferMinutes } from "./deadline-calculator";
 
-export function simulateFirstSegmentDelay(
+/**
+ * Deterministically simulates disruption delay on the first segment of a route
+ */
+export function simulateDelay(
   route: TravelRoute,
   delayMinutes: number,
-  deadlineIso: string,
-  alternatives: TravelRoute[],
-): DelaySimulation {
-  const first = route.segments[0];
-  const delayedArrival = addMinutes(first.arrival, delayMinutes);
-
-  if (route.segments.length === 1) {
-    const buffer = calculateDeadlineBuffer(delayedArrival, deadlineIso);
-    const confidence = calculateArrivalConfidence({
-      segments: [
-        {
-          ...first,
-          arrival: delayedArrival,
-          durationMinutes: first.durationMinutes + delayMinutes,
-        },
-      ],
-      transfers: 0,
-      deadlineBufferMinutes: buffer,
-      missesDeadline: buffer < 0,
-    });
-    const status =
-      buffer < 0 ? "missed_deadline" : buffer < 30 ? "tight" : "ok";
+  deadlineISO: string,
+  allFeasibleRoutes: TravelRoute[] = []
+): DelaySimulationImpact {
+  if (delayMinutes === 0) {
     return {
-      delayMinutes,
-      arrivalTime: delayedArrival,
-      deadlineBufferMinutes: buffer,
-      estimatedArrivalConfidence: confidence,
-      connectionViable: true,
-      status,
-      alternative: pickAlternative(route.id, alternatives, status),
+      delayMinutes: 0,
+      originalArrivalTime: route.arrivalTime,
+      newArrivalTime: route.arrivalTime,
+      originalBufferMinutes: route.deadlineBufferMinutes ?? 0,
+      newBufferMinutes: route.deadlineBufferMinutes ?? 0,
+      originalConfidence: route.estimatedArrivalConfidence,
+      newConfidence: route.estimatedArrivalConfidence,
+      isViable: route.isFeasible,
+      transferBroken: false,
+      missesDeadline: route.deadlineBufferMinutes != null && route.deadlineBufferMinutes < 0,
+      riskLevel: route.deadlineBufferMinutes != null && route.deadlineBufferMinutes < 45 ? "high" : "low",
     };
   }
 
-  const second = route.segments[1];
-  const required = requiredTransferMinutes(first.to, second.from);
-  const available = availableTransferMinutes(
-    { ...first, arrival: delayedArrival },
-    second,
-  );
-  const connectionViable = available >= required;
+  const firstSeg = route.segments[0];
+  const delayedSeg1Arrival = new Date(
+    new Date(firstSeg.arrivalTime).getTime() + delayMinutes * 60 * 1000
+  ).toISOString();
 
-  if (!connectionViable) {
-    return {
-      delayMinutes,
-      arrivalTime: delayedArrival,
-      deadlineBufferMinutes: calculateDeadlineBuffer(delayedArrival, deadlineIso),
-      estimatedArrivalConfidence: 18,
-      connectionViable: false,
-      status: "missed_connection",
-      alternative: pickAlternative(route.id, alternatives, "missed_connection"),
-    };
+  let transferBroken = false;
+  let finalArrivalISO = route.arrivalTime;
+
+  if (route.segments.length > 1) {
+    const secondSeg = route.segments[1];
+    // Check if delayed arrival breaks the required connection buffer to segment 2
+    const simulatedLeg1 = { ...firstSeg, arrivalTime: delayedSeg1Arrival };
+    const connectionCheck = validateConnection(simulatedLeg1, secondSeg);
+
+    if (!connectionCheck.isValid) {
+      transferBroken = true;
+      // If transfer is broken, arrival cascades by at least next flight/train window (~4 hours)
+      finalArrivalISO = new Date(
+        new Date(secondSeg.arrivalTime).getTime() + (delayMinutes + 240) * 60 * 1000
+      ).toISOString();
+    } else {
+      // Transfer holds, second segment departs on original schedule
+      finalArrivalISO = secondSeg.arrivalTime;
+    }
+  } else {
+    // Direct journey: entire arrival time shifts directly by delay minutes
+    finalArrivalISO = new Date(
+      new Date(route.arrivalTime).getTime() + delayMinutes * 60 * 1000
+    ).toISOString();
   }
 
-  const buffer = calculateDeadlineBuffer(second.arrival, deadlineIso);
-  const delayedFirst = { ...first, arrival: delayedArrival };
-  const confidence = calculateArrivalConfidence({
-    segments: [delayedFirst, second],
-    transfers: 1,
-    deadlineBufferMinutes: buffer,
-    missesDeadline: buffer < 0,
-  });
-  const status = buffer < 0 ? "missed_deadline" : available < required + 20 ? "tight" : "ok";
+  const newBufferMinutes = deadlineISO ? calculateDeadlineBufferMinutes(finalArrivalISO, deadlineISO) : 0;
+  const missesDeadline = Boolean(deadlineISO) && newBufferMinutes < 0;
+
+  // Recalculate confidence heuristically under delay pressure
+  let newConfidence = route.estimatedArrivalConfidence;
+  if (transferBroken) {
+    newConfidence = Math.max(5, Math.round(newConfidence * 0.25));
+  } else if (delayMinutes >= 120) {
+    newConfidence = Math.max(10, Math.round(newConfidence * 0.45));
+  } else if (delayMinutes >= 60) {
+    newConfidence = Math.max(20, Math.round(newConfidence * 0.65));
+  } else if (delayMinutes >= 30) {
+    newConfidence = Math.max(30, Math.round(newConfidence * 0.82));
+  }
+
+  // Determine risk level
+  let riskLevel: DelaySimulationImpact["riskLevel"] = "low";
+  if (missesDeadline || transferBroken) {
+    riskLevel = "critical";
+  } else if (newBufferMinutes < 45 || newConfidence < 50) {
+    riskLevel = "high";
+  } else if (newBufferMinutes < 90 || newConfidence < 70) {
+    riskLevel = "medium";
+  }
+
+  const isViable = !transferBroken && !missesDeadline;
+
+  // Find recommended alternative if this route becomes compromised
+  let suggestedAlternativeRouteId: string | undefined;
+  if (!isViable || riskLevel === "high" || riskLevel === "critical") {
+    const alternative = allFeasibleRoutes.find(
+      (r) => r.id !== route.id && r.isFeasible && (r.deadlineBufferMinutes == null || r.deadlineBufferMinutes > 60)
+    );
+    if (alternative) {
+      suggestedAlternativeRouteId = alternative.id;
+    }
+  }
 
   return {
     delayMinutes,
-    arrivalTime: second.arrival,
-    deadlineBufferMinutes: buffer,
-    estimatedArrivalConfidence: confidence,
-    connectionViable: true,
-    status,
-    alternative: pickAlternative(route.id, alternatives, status),
+    originalArrivalTime: route.arrivalTime,
+    newArrivalTime: finalArrivalISO,
+    originalBufferMinutes: route.deadlineBufferMinutes ?? 0,
+    newBufferMinutes,
+    originalConfidence: route.estimatedArrivalConfidence,
+    newConfidence,
+    isViable,
+    transferBroken,
+    missesDeadline,
+    riskLevel,
+    suggestedAlternativeRouteId,
   };
-}
-
-function pickAlternative(
-  currentId: string,
-  alternatives: TravelRoute[],
-  status: DelaySimulation["status"],
-): TravelRoute | null {
-  if (status === "ok") {
-    return null;
-  }
-  return (
-    alternatives.find(
-      (route) => route.id !== currentId && !route.missesDeadline,
-    ) ?? null
-  );
 }
