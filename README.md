@@ -2,7 +2,7 @@
 
 > A deadline-aware multimodal travel planner for journeys across India.
 
-**Live website:** [bhramansarthi.netlify.app](https://bhramansarthii.netlify.app/)  
+**Live website:** [bhramansarthii.netlify.app](https://bhramansarthii.netlify.app/)  
 **Developer:** [Himansu Kumar Sahu](https://www.linkedin.com/in/himansu-kumar-sahu-377916334?utm_source=share_via&utm_content=profile&utm_medium=member_android)
 
 Bhraman Sarthi brings Indian flights, trains, intercity buses, and selected mixed-mode journeys together into one clear, scannable plan. Compare direct options with connection itineraries, evaluate arrival buffers against strict cutoff deadlines, sort by speed or cost, and access direct booking search links across Indian travel aggregators and operators.
@@ -88,4 +88,4 @@ The repository includes [`netlify.toml`](netlify.toml). It builds the Next.js ap
 - [Architecture](ARCHITECTURE.md)
 - [Project Specification](PROJECT_SPEC.md)
 - [Design Notes](DESIGN.md)
-- [UI Style Guide](https://bhramansarthi.netlify.app/styleguide)
+- [UI Style Guide](https://bhramansarthii.netlify.app/styleguide)
